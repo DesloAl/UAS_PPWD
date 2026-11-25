@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kuis interaktif untuk menguji pemahaman konsep Pemrograman Berorientasi Objek.">
+  <title>Objekta — Kuis Pemrograman Berorientasi Objek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <header class="brand-row">
+      <a class="brand" href="#" aria-label="Objekta beranda"><span class="brand-mark">O</span><span>objekta<span class="brand-dot">.</span></span></a>
+      <span class="course-tag">LEARNING SPACE <span> / </span> PBO</span>
+    </header>
+
+    <section id="login-screen" class="panel login-panel">
+      <div class="intro-copy">
+        <span class="eyebrow"><span class="eyebrow-line"></span> OBJECT-ORIENTED PROGRAMMING</span>
+        <h1>Pahami konsep.<br><span>Bangun objek.</span></h1>
+        <p>Uji pemahamanmu tentang Pemrograman Berorientasi Objek melalui 10 pertanyaan interaktif.</p>
+        <div class="topic-chips"><span>Class & Object</span><span>Inheritance</span><span>Polymorphism</span><span>Encapsulation</span></div>
+      </div>
+      <form id="login-form" class="login-form" novalidate>
+        <div class="form-heading"><span class="form-index">01 / START</span><h2>Siap untuk mulai?</h2><p>Isi identitas peserta terlebih dahulu.</p></div>
+        <label for="input-nama">Nama lengkap</label>
+        <input id="input-nama" type="text" placeholder="Masukkan nama lengkap" autocomplete="name">
+        <label for="input-nim">Nomor Induk Mahasiswa</label>
+        <input id="input-nim" type="text" placeholder="Masukkan NIM" autocomplete="off">
+        <p id="login-error" class="error-text" role="alert" hidden>Nama dan NIM wajib diisi sebelum memulai.</p>
+        <button class="primary-btn" type="submit">Mulai kuis <span aria-hidden="true">↗</span></button>
+        <p class="form-note">10 soal <span>•</span> 6 pilihan jawaban <span>•</span> Pembahasan</p>
+      </form>
+    </section>
+
+    <section id="quiz-screen" class="panel quiz-panel" hidden>
+      <div class="quiz-top">
+        <div class="participant">
+          <div class="avatar" aria-hidden="true">P</div>
+          <div><p class="micro-label">PESERTA KUIS</p><strong id="display-nama">Nama Peserta</strong><small id="display-nim">NIM: -</small></div>
+        </div>
+        <div class="quiz-stats"><div class="stat"><span class="stat-icon">×</span><span>Salah <strong id="wrong-counter-badge">0</strong></span></div><div class="question-count">SOAL <strong id="current-question-num">1</strong><span> / 10</span></div></div>
+      </div>
+      <div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div>
+      <div class="question-area">
+        <div class="question-meta"><span id="question-category" class="category-pill">KONSEP DASAR</span><span id="question-step">PERTANYAAN 01</span></div>
+        <h2 id="question-text">Memuat pertanyaan...</h2>
+        <p class="instruction">Pilih satu jawaban yang paling tepat.</p>
+        <div id="options-container" class="options-grid"></div>
+      </div>
+      <div class="quiz-footer"><span>OBJEKTA <b>•</b> PBO QUIZ</span><span>PROGRESS BELAJAR</span></div>
+    </section>
+
+    <section id="result-screen" class="panel result-panel" hidden>
+      <div class="result-hero"><span class="result-symbol">✦</span><p class="eyebrow">QUIZ COMPLETED</p><h2>Satu langkah lebih<br><span>dekat dengan mastery.</span></h2><p>Kamu telah menyelesaikan seluruh pertanyaan.</p></div>
+      <div class="result-content">
+        <div class="result-person"><span>HASIL PESERTA</span><strong id="result-nama">-</strong><small id="result-nim">-</small></div>
+        <div class="result-metrics"><div><span>JAWABAN BENAR</span><strong id="result-correct-count">0</strong></div><div><span>JAWABAN SALAH</span><strong id="result-wrong-count">0</strong></div><div><span>NILAI</span><strong id="result-score">0</strong></div></div>
+        <p id="result-feedback-box" class="result-feedback"></p>
+        <button id="btn-restart" class="primary-btn" type="button">Ulangi kuis <span aria-hidden="true">↻</span></button>
+      </div>
+    </section>
+    <footer class="page-footer"><span>© OBJEKTA LEARNING</span><span>THINK IN OBJECTS. CODE WITH PURPOSE.</span></footer>
+  </main>
+
+  <div id="feedback-modal" class="modal-backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div id="modal-header" class="modal-header"><span id="modal-icon" class="modal-icon">✓</span><div><p id="modal-subtitle">FEEDBACK</p><h3 id="modal-title">Jawaban benar!</h3></div></div>
+      <div class="modal-content"><p id="modal-body-text"></p><button id="modal-action-btn" class="primary-btn" type="button"><span id="modal-btn-text">Lanjut</span><span aria-hidden="true">→</span></button></div>
+    </div>
+  </div>
+</body>
+</html>
